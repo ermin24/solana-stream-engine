@@ -1,0 +1,5 @@
+1. Account is structure on chain contained different fields and accessible by address. Idea is key(address): value Account. Shureness : 2 I don't know why they needed if its not a program 
+2. It wouuld be better say about programm first. Programm is Account that executable and have byte code in data field. Shureness: 4
+3. Instructions trigger the Programm to execute. Instructions have key value structure. Shureness: 3
+4. Transactions contain some instructions, that would be applied only if all of them executed without errors. In other case, transactions roll back all included instructions. Shureness: 5
+5. Slot is thing that assigned to validators and give them possibility to apply blocks due next 400ms If validator failed applying, task go to subsequent validator. Shureness: 3 How often network create slots? How it counts time? 
