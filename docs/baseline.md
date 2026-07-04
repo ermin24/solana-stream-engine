@@ -1,21 +1,32 @@
-# L
-EARNING PROJECT!!!
+# LEARNING PROJECT!!!
 # Baseline — 2026-07-03
 
 ## Rust
 
-До начала: Практически ничего.
-Что смог сделать: все, но не очень уверенно. Мне понравилось как ложится синтаксис в голову если не торопиться.
-Что пришлось копировать: я скопировал вводные задачи.
-Что осталось непонятно: Ох мне предстоит поработать с пониманием ссылок в первую очередь. И пониманием является ли операция copied тяжелой для памяти.
+Before: Almost nothing.
+What was done: All tasks was done, but without confidence. I like to do it.
+What was copied: I copied conditions of task.
+What I steal don't understand : Oh, first I have to understand links and ownership.
 
 ## Solana
 
-До начала: Я понимаю в общих чертах как работает блокчейн. Курс проходил специальный года три назад. С Solana не был знаком.
-Что стало понятно: Несколько новых абстракций, и то, что многое предстоит 
-Что осталось непонятно: PoH on PoS 
+Before: I understand how blockchain works, had courses years ago. But know nothing about Solana.  
+What became clear: Basic entities  
+What I steal don't understand: PoH on PoS, not executable Accounts purpose 
 
 ## Workflow
 
-Сколько времени заняло: плохо контролировал, сильно дробил время. Думаю меньше 3-х часов. Но по интенсивности, максимум. Такая скорость усвоения достаточна
-Где потерял больше всего времени: не спотыкался особо. Довольно равномерно получилось распределить время.
+How much time spent: Much less than 3 hours, but I was tired yesterday. Now it's comfortable speed.
+Where lost must time: I worked without peaks of time spending. Evenly.
+
+# Baseline — 2026-07-04
+
+## Rust
+
+What was done: Refactoring of slot-stream and unit tests
+What was copied: I required significant help from chat to understand slot_range function, but I wrote code from memory.
+What I steal don't understand: At the moment all are clear for me.
+
+## Solana
+
+Today I just rewrite it in English, nothing new.
