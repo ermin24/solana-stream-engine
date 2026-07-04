@@ -1,24 +1,47 @@
 fn main() {
-    // let slots: Vec<u64> = vec![348_100_001, 348_100_002, 348_100_005];
-    let slots: Vec<u64> = vec![];
+    let slots: Vec<u64> = vec![348_100_001, 348_100_002, 348_100_005];
+    // let slots: Vec<u64> = vec![];
     if slots.is_empty() {
         println!("no slots available");
         return;
     }
-    let slots_length = slots.len() as u8;
-    let slots_max = max_slots(&slots);
-    let slots_min = min_slots(&slots);
-    for slot in slots {
+    let slots_length = slots.len();
+    for slot in &slots {
         println!("slot: {slot}");
     }
     println!("count: {slots_length}");
-    println!("max: {slots_max}");
-    println!("min: {slots_min}")
+    match slot_range(&slots) {
+        Some((min, max)) => {
+            println!("min:{min}");
+            println!("max:{max}")
+        }
+        None => {
+            println!("no slots available");
+        }
+    }
+}
+fn slot_range(slots: &[u64]) -> Option<(u64, u64)> {
+    if slots.is_empty() {
+        return None;
+    };
+    let min = slots.iter().min().unwrap();
+    let max = slots.iter().max().unwrap();
+    Some((*min, *max))
 }
 
-fn max_slots(slots: &[u64]) -> u64 {
-    slots.iter().max().copied().expect("slots is empty")
-}
-fn min_slots(slots: &[u64]) -> u64 {
-    slots.iter().min().copied().expect("slots is empty")
+#[cfg(test)]
+mod tests {
+    use crate::slot_range;
+
+    #[test]
+    fn test_slot_range() {
+        assert_eq!(
+            slot_range(&[348_100_001, 348_101_111]),
+            Some((348_100_001, 348_101_111))
+        );
+    }
+    #[test]
+    fn test_slot_range_empty() {
+        assert_eq!(slot_range(&[]), None);
+    }
 }
