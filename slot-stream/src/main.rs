@@ -9,14 +9,14 @@ fn main() {
     match slot_range(&slots) {
         Some((min, max)) => {
             println!("min: {min}");
-            println!("max: {max}")
+            println!("max:  {max}")
         }
         None => {
             println!("no slots available");
         }
     }
 }
-fn slot_range(slots: &Vec<u64>) -> Option<(u64, u64)> {
+fn slot_range(slots: &[u64]) -> Option<(u64, u64)> {
     if slots.is_empty() {
         return None;
     }
