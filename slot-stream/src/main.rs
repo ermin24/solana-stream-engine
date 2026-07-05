@@ -1,10 +1,6 @@
 fn main() {
     let slots: Vec<u64> = vec![348_100_001, 348_100_002, 348_100_005];
     // let slots: Vec<u64> = vec![];
-    if slots.is_empty() {
-        println!("no slots available");
-        return;
-    }
     let slots_length = slots.len();
     for slot in &slots {
         println!("slot: {slot}");
@@ -12,8 +8,8 @@ fn main() {
     println!("count: {slots_length}");
     match slot_range(&slots) {
         Some((min, max)) => {
-            println!("min:{min}");
-            println!("max:{max}")
+            println!("min: {min}");
+            println!("max: {max}")
         }
         None => {
             println!("no slots available");
@@ -23,7 +19,7 @@ fn main() {
 fn slot_range(slots: &[u64]) -> Option<(u64, u64)> {
     if slots.is_empty() {
         return None;
-    };
+    }
     let min = slots.iter().min().unwrap();
     let max = slots.iter().max().unwrap();
     Some((*min, *max))
