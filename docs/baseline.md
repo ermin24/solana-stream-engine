@@ -12,7 +12,7 @@ What I still don't understand : Oh, first I have to understand references and ow
 
 Before: I understand how blockchain works, had courses years ago. But know nothing about Solana.  
 What became clear: Basic entities.  
-What I still don't understand: PoH on PoS, the purpose of not executable Accounts. 
+What I still don't understand: PoH on PoS, the purpose of non-executable Accounts. 
 
 ## Workflow
 
@@ -25,7 +25,7 @@ Where I spent the most time: I worked without peaks of time spending. Evenly.
 
 What was done: Refactoring of slot-stream and unit tests.
 What was copied: I required significant help from chat to understand slot_range function, but I wrote code from memory.
-What I steal don't understand: At the moment all are clear for me.
+What I still don't understand: At the moment all are clear for me.
 
 ## Solana
 

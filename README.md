@@ -4,4 +4,4 @@ A learning-driven project for ingesting, processing, storing and serving real-ti
 
 Target pipeline:
 
-Solana / Yellowstone → Rust → Redpanda → ClickHouse → API Stream Engine
+Solana / Yellowstone → Rust → Redpanda → ClickHouse → API

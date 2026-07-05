@@ -9,7 +9,7 @@ fn main() {
     match slot_range(&slots) {
         Some((min, max)) => {
             println!("min: {min}");
-            println!("max:  {max}")
+            println!("max: {max}")
         }
         None => {
             println!("no slots available");
