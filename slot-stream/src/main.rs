@@ -16,7 +16,7 @@ fn main() {
         }
     }
 }
-fn slot_range(slots: &[u64]) -> Option<(u64, u64)> {
+fn slot_range(slots: &Vec<u64>) -> Option<(u64, u64)> {
     if slots.is_empty() {
         return None;
     }
