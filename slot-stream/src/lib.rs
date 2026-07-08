@@ -38,7 +38,7 @@ mod tests {
     }
 
     #[test]
-    fn test_parse_slots_different_space() {
+    fn test_parse_slots_mixed_whitespace() {
         assert_eq!(parse_slots("10 20\n30"), Ok(vec![10, 20, 30]));
     }
 
