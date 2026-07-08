@@ -9,7 +9,6 @@ pub fn slot_range(slots: &[u64]) -> Option<(u64, u64)> {
 }
 
 pub fn parse_slots(input: &str) -> Result<Vec<u64>, ParseIntError> {
-    // implementation
     input.split_whitespace().map(|s| s.parse()).collect()
 }
 
@@ -29,9 +28,22 @@ mod tests {
         assert_eq!(slot_range(&[]), None);
     }
     #[test]
-    fn test_parse_slots() {
+    fn test_parse_slots_single() {
         assert_eq!(parse_slots("42"), Ok(vec![42]));
+    }
+
+    #[test]
+    fn test_parse_slots_multi() {
+        assert_eq!(parse_slots("1 2 3 4 5"), Ok(vec![1, 2, 3, 4, 5]));
+    }
+
+    #[test]
+    fn test_parse_slots_different_space() {
         assert_eq!(parse_slots("10 20\n30"), Ok(vec![10, 20, 30]));
+    }
+
+    #[test]
+    fn test_parse_slots_empty() {
         assert_eq!(parse_slots(""), Ok(Vec::new()));
     }
 
