@@ -22,14 +22,12 @@ pub struct SlotSummary {
 }
 
 pub fn summarize_slots(slots: &[u64]) -> Option<SlotSummary> {
-    if slots.is_empty() {
-        return None;
-    };
     let count = slots.len();
     let min = slots.iter().min().copied()?;
     let max = slots.iter().max().copied()?;
     let first = slots.first().copied()?;
     let last = slots.last().copied()?;
+
     Some(SlotSummary {
         count,
         first,
@@ -85,34 +83,42 @@ mod tests {
     }
     #[test]
     fn test_summarize_slots_single() {
-        let single = 348_100_001;
-        let only = SlotSummary {
-            count: 1,
-            max: single,
-            min: single,
-            first: single,
-            last: single,
-        };
-        let summary = match summarize_slots(&[single]) {
-            Some(s) => s,
-            None => return,
-        };
-        assert_eq!(summary, only);
+        assert_eq!(
+            summarize_slots(&[348_100_001]),
+            Some(SlotSummary {
+                count: 1,
+                max: 348_100_001,
+                min: 348_100_001,
+                first: 348_100_001,
+                last: 348_100_001,
+            })
+        )
     }
 
     #[test]
-    fn test_summarize_slots_multi_a() {
-        let multi = SlotSummary {
-            count: 4,
-            max: 40,
-            min: 4,
-            first: 40,
-            last: 12,
-        };
-        let summary = match summarize_slots(&[40, 4, 24, 12]) {
-            Some(s) => s,
-            None => return,
-        };
-        assert_eq!(summary, multi)
+    fn test_summarize_slots_disordered() {
+        assert_eq!(
+            summarize_slots(&[40, 4, 24, 12]),
+            Some(SlotSummary {
+                count: 4,
+                max: 40,
+                min: 4,
+                first: 40,
+                last: 12,
+            })
+        )
+    }
+    #[test]
+    fn test_summarize_slots_ordered() {
+        assert_eq!(
+            summarize_slots(&[4, 12, 24, 40]),
+            Some(SlotSummary {
+                count: 4,
+                max: 40,
+                min: 4,
+                first: 4,
+                last: 40,
+            })
+        )
     }
 }
