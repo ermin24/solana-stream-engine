@@ -1,4 +1,4 @@
-use slot_stream::parse_slots;
+use slot_stream::{SlotSummary, parse_slots, summarize_slots};
 use std::io::{self, Read};
 use std::process::ExitCode;
 
@@ -17,20 +17,12 @@ fn main() -> ExitCode {
         }
     };
 
-    let slots_length = slots.len();
     for slot in &slots {
         println!("slot: {slot}");
     }
-    println!("count: {slots_length}");
-    match slot_stream::slot_range(&slots) {
-        Some((min, max)) => {
-            println!("min: {min}");
-            println!("max: {max}")
-        }
-        None => {
-            println!("no slots available");
-        }
-    }
+
+    let result: SlotSummary = summarize_slots(&slots).unwrap();
+    println!("{result}");
 
     ExitCode::SUCCESS
 }

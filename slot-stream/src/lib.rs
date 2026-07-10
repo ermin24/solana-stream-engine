@@ -1,3 +1,4 @@
+use std::fmt;
 use std::num::ParseIntError;
 pub fn slot_range(slots: &[u64]) -> Option<(u64, u64)> {
     if slots.is_empty() {
@@ -12,13 +13,23 @@ pub fn parse_slots(input: &str) -> Result<Vec<u64>, ParseIntError> {
     input.split_whitespace().map(|s| s.parse()).collect()
 }
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct SlotSummary {
     pub count: usize,
     pub first: u64,
     pub last: u64,
     pub min: u64,
     pub max: u64,
+}
+
+impl fmt::Display for SlotSummary {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        write!(
+            f,
+            "count: {}\nfirst: {}\nlast: {}\nmin: {}\nmax: {}",
+            self.count, self.first, self.last, self.min, self.max
+        )
+    }
 }
 
 pub fn summarize_slots(slots: &[u64]) -> Option<SlotSummary> {
