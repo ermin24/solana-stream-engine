@@ -1,4 +1,4 @@
-use slot_stream::{SlotSummary, parse_slots, summarize_slots};
+use slot_stream::{parse_slots, summarize_slots};
 use std::io::{self, Read};
 use std::process::ExitCode;
 
@@ -21,8 +21,13 @@ fn main() -> ExitCode {
         println!("slot: {slot}");
     }
 
-    let result: SlotSummary = summarize_slots(&slots).unwrap();
-    println!("{result}");
+    match summarize_slots(&slots) {
+        Some(summary) => println!("{summary}"),
+        None => {
+            println!("count: 0");
+            println!("no slots available");
+        }
+    }
 
     ExitCode::SUCCESS
 }

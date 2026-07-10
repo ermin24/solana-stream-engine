@@ -13,7 +13,7 @@ pub fn parse_slots(input: &str) -> Result<Vec<u64>, ParseIntError> {
     input.split_whitespace().map(|s| s.parse()).collect()
 }
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+#[derive(Debug, PartialEq, Eq)]
 pub struct SlotSummary {
     pub count: usize,
     pub first: u64,
